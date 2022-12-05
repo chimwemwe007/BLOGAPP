@@ -10,16 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2022_10_19_095250) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2022_11_30_102624) do
+>>>>>>> a84e878566ac4c3820d02ce9889d3f621b67f9fa
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
+<<<<<<< HEAD
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "post_id", null: false
     t.bigint "author_id", null: false
+=======
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "post_id"
+    t.bigint "author_id"
+>>>>>>> a84e878566ac4c3820d02ce9889d3f621b67f9fa
     t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
@@ -27,20 +39,33 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_095250) do
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.bigint "post_id", null: false
     t.bigint "author_id", null: false
+=======
+    t.bigint "post_id"
+    t.bigint "author_id"
+>>>>>>> a84e878566ac4c3820d02ce9889d3f621b67f9fa
     t.index ["author_id"], name: "index_likes_on_author_id"
     t.index ["post_id"], name: "index_likes_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
+<<<<<<< HEAD
     t.text "text"
+=======
+    t.string "text"
+>>>>>>> a84e878566ac4c3820d02ce9889d3f621b67f9fa
     t.integer "comments_counter", default: 0
     t.integer "likes_counter", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.bigint "author_id", null: false
+=======
+    t.bigint "author_id"
+>>>>>>> a84e878566ac4c3820d02ce9889d3f621b67f9fa
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 

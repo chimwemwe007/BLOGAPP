@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+<<<<<<< HEAD
 ruby '3.1.2'
+=======
+ruby '2.7.6'
+>>>>>>> a84e878566ac4c3820d02ce9889d3f621b67f9fa
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
@@ -42,6 +46,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+gem 'pagy', '~> 5.10'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -51,8 +56,12 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+<<<<<<< HEAD
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 4.0.2'
+=======
+  gem 'rspec-rails'
+>>>>>>> a84e878566ac4c3820d02ce9889d3f621b67f9fa
 end
 
 group :development do
