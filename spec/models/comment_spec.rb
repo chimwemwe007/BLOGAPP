@@ -1,21 +1,60 @@
-require 'rails_helper'
+require_relative '../rails_helper'
 
-describe Comment, type: :model do
-  before :each do
-    @author = User.new(name: 'Edi', photo: 'https://avatars.githubusercontent.com/u/105216647?v=4',
-                       bio: 'Full-stack developer')
-    @post = Post.new(author: @author, title: 'Post one', text: 'Post')
-
-    @comment1 = Comment.create(author: @author, post: @post, text: 'Comment one')
-    @comment2 = Comment.create(author: @author, post: @post, text: 'Comment two')
+RSpec.describe Comment, type: :model do
+  let(:user) do
+    User.new(
+      name: 'John',
+      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'I am a photographer',
+      posts_counter: 4
+    )
   end
 
-  it 'can not update likes_counter its a private method' do
-    expect(@comment1).to_not respond_to(:update_comments_counter)
-    expect(@comment2).to_not respond_to(:update_comments_counter)
+  let(:post) do
+    Post.new(
+      users: user,
+      title: 'My first post',
+      text: 'This is my first post',
+      comments_counter: 1,
+      likes_counter: 2
+    )
   end
 
-  it 'will have the Posts comments_counter through update_comments_counter ' do
-    expect(@post.comments_counter).to eq 2
+  let(:comment) do
+    Comment.new(
+      users: user,
+      posts: post,
+      text: 'Hey!, it is my first comment'
+    )
+  end
+
+  it 'is not valid without a text' do
+    comment.text = 'Hey!, it is my first comment'
+    expect(comment).to be_valid
+  end
+
+  it 'is not valid without a text' do
+    comment.text = nil
+    expect(comment).to_not be_valid
+  end
+
+  it 'is only valid with a user' do
+    comment.users = user
+    expect(comment).to be_valid
+  end
+
+  it 'is only valid wiht a user' do
+    comment.users = nil
+    expect(comment).to_not be_valid
+  end
+
+  it 'it only valid with a post' do
+    comment.posts = nil
+    expect(comment).to_not be_valid
+  end
+
+  it 'is valid with a post' do
+    comment.posts = post
+    expect(comment).to be_valid
   end
 end

@@ -1,22 +1,52 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  subject { User.new(name: 'Edi', photo: 'https://avatars.githubusercontent.com/u/105216647?v=4', posts_counter: 10, bio: 'Full-stack developer') }
+describe User, type: :model do
+  subject { User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', posts_counter: 3) }
 
   before { subject.save }
 
-  it 'Name should be present' do
+  it 'name should be present' do
     subject.name = nil
     expect(subject).to_not be_valid
   end
 
-  it 'Post Counter must be integer' do
-    subject.posts_counter = 'z'
+  it 'name should be present' do
+    subject.name = 'Tom'
+    expect(subject).to be_valid
+  end
+
+  it 'posts_counter should be an integer' do
+    subject.posts_counter = 'three'
     expect(subject).to_not be_valid
   end
 
-  it 'Post Counter must be 0 or greater' do
-    subject.posts_counter = -5
+  it 'posts_counter should be an integer' do
+    subject.posts_counter = 3
+    expect(subject).to be_valid
+  end
+
+  it 'posts_counter should not be negative' do
+    subject.posts_counter = -1
     expect(subject).to_not be_valid
+  end
+
+  it 'bio should be less than 180 characters' do
+    subject.bio = 'a' * 181
+    expect(subject).to_not be_valid
+  end
+
+  it 'bio should be less than 180 characters' do
+    subject.bio = 'a' * 180
+    expect(subject).to be_valid
+  end
+
+  it 'bio should be more than 20 characters' do
+    subject.bio = 'a' * 19
+    expect(subject).to_not be_valid
+  end
+
+  it 'bio should be more than 20 characters' do
+    subject.bio = 'a' * 20
+    expect(subject).to be_valid
   end
 end
