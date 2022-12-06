@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Comment, type: :model do
+RSpec.describe Like, type: :model do
   let(:author) { User.create(name: 'test', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'test', posts_counter: 2) }
   let(:post) { Post.create(title: 'test', author_id: author.id, comments_counter: 2, likes_counter: 2) }
 
   subject do
-    Comment.new(text: 'test', author_id: author.id, post_id: post.id)
+    Like.new(author_id: author.id, post_id: post.id)
   end
 
   it 'is valid with valid attributes' do
@@ -43,8 +43,8 @@ RSpec.describe Comment, type: :model do
   end
 
   # add tests for your custom methods here
-  it 'should update the comments_counter of a post' do
-    Comment.create(text: 'test', author_id: author.id, post_id: post.id)
-    expect(post.comments_counter).to eq(2)
+  it 'should update the likes_counter of a post' do
+    Like.create(author_id: author.id, post_id: post.id)
+    expect(post.likes_counter).to eq(2)
   end
 end

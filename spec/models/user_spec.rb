@@ -1,52 +1,36 @@
 require 'rails_helper'
 
-describe User, type: :model do
-  subject { User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', posts_counter: 3) }
-
-  before { subject.save }
+RSpec.describe User, type: :model do
+  subject do
+    User.new(name: 'test', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'test', posts_counter: 2)
+  end
 
   it 'name should be present' do
     subject.name = nil
     expect(subject).to_not be_valid
   end
 
-  it 'name should be present' do
-    subject.name = 'Tom'
-    expect(subject).to be_valid
-  end
-
-  it 'posts_counter should be an integer' do
-    subject.posts_counter = 'three'
-    expect(subject).to_not be_valid
-  end
-
-  it 'posts_counter should be an integer' do
-    subject.posts_counter = 3
-    expect(subject).to be_valid
-  end
-
-  it 'posts_counter should not be negative' do
+  it 'post counter should be greater than 0' do
     subject.posts_counter = -1
     expect(subject).to_not be_valid
   end
 
-  it 'bio should be less than 180 characters' do
-    subject.bio = 'a' * 181
-    expect(subject).to_not be_valid
-  end
-
-  it 'bio should be less than 180 characters' do
-    subject.bio = 'a' * 180
+  it 'post counter should be greater than 0' do
+    subject.posts_counter = 1
     expect(subject).to be_valid
   end
 
-  it 'bio should be more than 20 characters' do
-    subject.bio = 'a' * 19
+  it 'post counter should be an integer' do
+    subject.posts_counter = 1.2
     expect(subject).to_not be_valid
   end
-
-  it 'bio should be more than 20 characters' do
-    subject.bio = 'a' * 20
-    expect(subject).to be_valid
+  # add tests for your custom methods here
+  it 'should return the most recent posts' do
+    user = User.create(name: 'test', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'test',
+                       posts_counter: 2)
+    post2 = Post.create(title: 'test', author_id: user.id, comments_counter: 2, likes_counter: 2)
+    post3 = Post.create(title: 'test', author_id: user.id, comments_counter: 2, likes_counter: 2)
+    post4 = Post.create(title: 'test', author_id: user.id, comments_counter: 2, likes_counter: 2)
+    expect(user.most_recent_posts).to eq([post4, post3, post2])
   end
 end

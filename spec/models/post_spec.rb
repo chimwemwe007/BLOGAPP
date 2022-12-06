@@ -1,72 +1,64 @@
 require 'rails_helper'
 
-describe Post, type: :model do
-  let(:user) do
-    User.new(
-      name: 'John',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'I am a photographer',
-      posts_counter: 4
-    )
+RSpec.describe Post, type: :model do
+  let(:author) { User.create(name: 'test', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'test', posts_counter: 2) }
+
+  subject do
+    Post.new(title: 'test', author_id: author.id, comments_counter: 2, likes_counter: 2)
   end
 
-  let(:post) do
-    Post.new(
-      users: user,
-      title: 'My first post',
-      text: 'This is my first post',
-      comments_counter: 1,
-      likes_counter: 2
-    )
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
   end
 
-  it 'title should be present' do
-    post.title = nil
-    expect(post).to_not be_valid
+  it 'is not valid without a title' do
+    subject.title = nil
+    expect(subject).to_not be_valid
   end
 
-  it 'title should be present' do
-    post.title = 'My first post'
-    expect(post).to be_valid
+  it 'is not valid without a author_id' do
+    subject.author_id = nil
+    expect(subject).to_not be_valid
   end
 
-  it 'title should not be too long' do
-    post.title = 'a' * 251
-    expect(post).to_not be_valid
+  it 'is not valid without a comments_counter' do
+    subject.comments_counter = nil
+    expect(subject).to_not be_valid
   end
 
-  it 'title should not be too long' do
-    post.title = 'a' * 249
-    expect(post).to be_valid
+  it 'is not valid without a likes_counter' do
+    subject.likes_counter = nil
+    expect(subject).to_not be_valid
   end
 
-  it 'comments_counter should be an integer' do
-    post.comments_counter = 'two'
-    expect(post).to_not be_valid
+  it 'is not valid with a title longer than 250 characters' do
+    subject.title = 'a' * 251
+    expect(subject).to_not be_valid
   end
 
-  it 'comments_counter should be an integer' do
-    post.comments_counter = 2
-    expect(post).to be_valid
+  it 'is not valid with a comments_counter not being an integer' do
+    subject.comments_counter = 'a'
+    expect(subject).to_not be_valid
   end
 
-  it 'comments_counter should not be negative' do
-    post.comments_counter = -1
-    expect(post).to_not be_valid
+  it 'is not valid with a comments_counter being less than 0' do
+    subject.comments_counter = -1
+    expect(subject).to_not be_valid
   end
 
-  it 'likes_counter should be an integer' do
-    post.likes_counter = 'four'
-    expect(post).to_not be_valid
+  it 'is not valid with a likes_counter not being an integer' do
+    subject.likes_counter = 'a'
+    expect(subject).to_not be_valid
   end
 
-  it 'likes_counter should be an integer' do
-    post.likes_counter = 4
-    expect(post).to be_valid
-  end
-
-  it 'likes_counter should not be negative' do
-    post.likes_counter = -1
-    expect(post).to_not be_valid
+  # add tests for your custom methods here
+  it 'should return the most recent comments' do
+    post = Post.create(title: 'test', author_id: author.id, comments_counter: 2, likes_counter: 2)
+    comment2 = Comment.create(text: 'test', author_id: author.id, post_id: post.id)
+    comment3 = Comment.create(text: 'test', author_id: author.id, post_id: post.id)
+    comment4 = Comment.create(text: 'test', author_id: author.id, post_id: post.id)
+    comment5 = Comment.create(text: 'test', author_id: author.id, post_id: post.id)
+    comment6 = Comment.create(text: 'test', author_id: author.id, post_id: post.id)
+    expect(post.most_recent_comments).to eq([comment6, comment5, comment4, comment3, comment2])
   end
 end
