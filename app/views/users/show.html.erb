@@ -1,31 +1,48 @@
-<h1>Here is a lists of a given user</h1>
-<section>
-    <div class= "container-fluid">
-        <div class="user-img">
-          <img src="<%= @user.photo %>" alt="<%= @user.name %>">
-        </div>
-        <div class="details">
-          <h1 class="user-head"><%= @user.name %></h1>
-          <p class="user-para">Number of posts: <%= @user.posts_counter || 0 %></p>
+<div class="mt-3 d-flex align-items-center flex-column">
+  <div class="photo-name">
+    <div class="card mb-3 border-primary" style="width: 180px">
+      <img src="<%= @user.photo %>" alt="avatar" />
     </div>
-        <div class="user-bio">
-        <h3>Bio: </h3>
-        <p><%= @user.bio %></p>
-        </div>
+    <div class="card-body">
+      <h2><%= @user.name %></h2>
+    </div>
+    <div class="d-flex justify-content-end" style="width: 350px">
+      <p class="card-text">
+        <small class="text-muted"
+          >Number of posts: <%= @user.posts_counter %></small
+        >
+      </p>
+    </div>
+  </div>
+  <div class="card mb-3 border-info" style="width: 680px">
+    <h1 class="card-header bg-info">Bio</h1>
+    <div class="card-body">
+      <p class="card-text"><%= @user.bio %></p>
+    </div>
+  </div>
+</div>
+<div>
+  <div class="mt-3 d-flex align-items-center flex-column">
+    <h2 class="card-title bg-info">Most Recent Posts</h2>
+    <div class="card mb-3 border-danger" style="width: 680px">
+      <% @user.most_recent_posts.each do |post| %> <%= link_to post.title,
+      user_post_path(@user, post) %>
+      <ul class="card-body">
+        <li class="card-text"><%= post.text %></li>
+      </ul>
+      <div class="card-footer d-flex gap-2 justify-content-end">
+        <p class="card-text">
+          <small class="text-muted"
+            >Comments: <%= post.comments_counter %></small
+          >
+          <!-- Link to comment path -->
+        </p>
+        <p class="card-text">
+          <small class="text-muted">Likes: <%= post.likes_counter %></small>
+        </p>
       </div>
-      <div class="user-post">
-       <% @user.recent_posts.each do |post| %>
-       <%= link_to user_post_path(@user, post.id) do %>
-        <div class="post-container">
-         <h2>Post: <%= post.title %></h2>
-         <p><%= post.text %></p>
-         <div class="counter">
-                  <span>comments:<%= post.comments_counter || 0 %></span>
-                  <span>likes:<%= post.likes_counter || 0 %></span>
-         </div>
-        </div>
-       <% end %>
-       <% end %>
-       <button class="btn btn-primary"> <%= link_to "See all posts", user_posts_path(@user) %></button>
-      </div>
-</section>
+      <% end %> <%= link_to "See All Posts ", user_posts_path(@user) , class:
+      "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
