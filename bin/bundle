@@ -41,7 +41,11 @@ m = Module.new do
     gemfile = ENV['BUNDLE_GEMFILE']
     return gemfile if gemfile && !gemfile.empty?
 
+<<<<<<< HEAD
     File.expand_path('../Gemfile', __dir__)
+=======
+    File.expand_path("../Gemfile", __dir__)
+>>>>>>> e9c2032195cbf0c98c447a9f4d718028676a1f3f
   end
 
   def lockfile

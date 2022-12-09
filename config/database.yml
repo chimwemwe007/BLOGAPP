@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SQLite. Versions 3.8.0 and up are supported.
 #   gem install sqlite3
 #
@@ -7,11 +8,26 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+=======
+default: &default
+  adapter: postgresql
+  encoding: unicode
+<<<<<<< HEAD
+=======
+  host: localhost
+  port: 5432
+  user: postgres
+  password: Galoramedia21
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+>>>>>>> a84e878566ac4c3820d02ce9889d3f621b67f9fa
+>>>>>>> e9c2032195cbf0c98c447a9f4d718028676a1f3f
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
   <<: *default
+<<<<<<< HEAD
   database: blog_app_development
   user: postgres
   password: 1458
@@ -27,10 +43,30 @@ test:
   user: postgres
   password: 1458
   host: localhost
+=======
+  database: blogapp_development
+  username: blogapp
+  password: gjjkulu
+  host: 127.0.0.1
+  port: 5432
+
+test:
+  <<: *default
+  database: blogapp_test
+  username: blogapp
+  password: gjjkulu
+  host: 127.0.0.1
+>>>>>>> e9c2032195cbf0c98c447a9f4d718028676a1f3f
   port: 5432
 
 production:
   <<: *default
+<<<<<<< HEAD
   database: db/production_blog_app
   user: blog
   passworg: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
+=======
+  database: BlogApp_production
+  username: BlogApp
+  password: <%= ENV["BLOGAPP_DATABASE_PASSWORD"] %>
+>>>>>>> e9c2032195cbf0c98c447a9f4d718028676a1f3f

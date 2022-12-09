@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <% @title='My Blog | Posts' %>
 <div class="mt-3 d-flex align-items-center flex-column">
   <div class="card mb-3 border-primary" style="width: 680px">
@@ -100,6 +101,28 @@
   </div>
 </div>
 =======
+<h1>List of all Posts by <%= @user.name%></h1>
+<section >
+  <%= render'partials/user', user: @user %>
+    <% @posts.each do |post| %>
+   <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+    <ul class="post-list">
+    <%= render 'partials/post', post: post %>
+    </ul>
+    <ul class="comments-list">
+      <% if post.comments_counter > 0 %>
+            <%= render 'partials/comment', comment: post.return_recent_comments %>
+      <% else %>
+        <li>No comments</li>
+      <% end %>
+    </ul>
+   <a>
+    <% end %>
+
+  <button type='button'>Pagination</button>
+</section>
+>>>>>>> e9c2032195cbf0c98c447a9f4d718028676a1f3f
+=======
 <div class="card mb-3 text-center d-flex justify-content-center" style="max-width: 540px;">
   <div class="row g-0 text-center">
     <div class="col-md-4">
@@ -151,4 +174,8 @@
  <% end %>
 
  <%== pagy_nav(@pagy) %>
+<<<<<<< HEAD
 >>>>>>> 289918409f164a7f36a95e0ae462e6cefa02984f
+=======
+>>>>>>> a84e878566ac4c3820d02ce9889d3f621b67f9fa
+>>>>>>> e9c2032195cbf0c98c447a9f4d718028676a1f3f

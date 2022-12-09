@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
+<<<<<<< HEAD
     @posts = @user.posts.includes(:author)
   end
 
@@ -47,5 +48,13 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :text)
+=======
+    @posts = Post.where(author: @user)
+  end
+
+  def show
+    puts params
+    @post = Post.find(params[:id])
+>>>>>>> e9c2032195cbf0c98c447a9f4d718028676a1f3f
   end
 end
