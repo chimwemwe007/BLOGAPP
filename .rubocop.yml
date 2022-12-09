@@ -58,11 +58,7 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
-<<<<<<< HEAD
 Style/StringLiterals:
   Enabled: false
 Style/NumericLiterals:
-=======
-Layout/EndOfLine:
->>>>>>> 289918409f164a7f36a95e0ae462e6cefa02984f
   Enabled: false

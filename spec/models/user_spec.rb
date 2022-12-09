@@ -10,7 +10,6 @@ RSpec.describe User, type: :model do
     expect(subject).to_not be_valid
   end
 
-<<<<<<< HEAD
   it 'post counter should be greater than 0' do
     subject.posts_counter = -1
     expect(subject).to_not be_valid
@@ -34,15 +33,4 @@ RSpec.describe User, type: :model do
     post4 = Post.create(title: 'test', author_id: user.id, comments_counter: 2, likes_counter: 2)
     expect(user.most_recent_posts).to eq([post4, post3, post2])
   end
-=======
-  it 'Post Counter must be integer' do
-    subject.posts_counter = 'z'
-    expect(subject).to_not be_valid
-  end
-
-  it 'Post Counter must be 0 or greater' do
-    subject.posts_counter = -5
-    expect(subject).to_not be_valid
-  end
->>>>>>> 289918409f164a7f36a95e0ae462e6cefa02984f
 end
