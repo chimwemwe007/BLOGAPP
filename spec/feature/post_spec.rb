@@ -102,5 +102,3 @@ RSpec.describe Post, type: :system do
     end
   end
 end
-
-   

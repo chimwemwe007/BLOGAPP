@@ -40,7 +40,6 @@ gem 'jbuilder'
 gem 'ffi'
 gem 'tzinfo-data', '1.2014.5'
 
-
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
