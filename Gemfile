@@ -1,11 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-<<<<<<< HEAD
 ruby '3.1.2'
-=======
-ruby '2.7.6'
->>>>>>> 289918409f164a7f36a95e0ae462e6cefa02984f
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
@@ -67,11 +63,8 @@ group :development, :test do
   gem "database_cleaner"
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
-<<<<<<< HEAD
   gem 'selenium-webdriver'
   gem 'webdrivers'
-=======
->>>>>>> 289918409f164a7f36a95e0ae462e6cefa02984f
 end
 
 group :development do
