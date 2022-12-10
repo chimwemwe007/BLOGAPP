@@ -41,11 +41,7 @@ m = Module.new do
     gemfile = ENV['BUNDLE_GEMFILE']
     return gemfile if gemfile && !gemfile.empty?
 
-<<<<<<< HEAD
     File.expand_path('../Gemfile', __dir__)
-=======
-    File.expand_path("../Gemfile", __dir__)
->>>>>>> e9c2032195cbf0c98c447a9f4d718028676a1f3f
   end
 
   def lockfile
@@ -66,28 +62,20 @@ m = Module.new do
     Regexp.last_match(1)
   end
 
-  def bundler_version
-    @bundler_version ||=
+  def bundler_requirement
+    @bundler_requirement ||=
       env_var_version || cli_arg_version ||
-<<<<<<< HEAD
       bundler_requirement_for(lockfile_version)
-=======
-        lockfile_version
->>>>>>> 289918409f164a7f36a95e0ae462e6cefa02984f
   end
 
-  def bundler_requirement
-    return "#{Gem::Requirement.default}.a" unless bundler_version
+  def bundler_requirement_for(version)
+    return "#{Gem::Requirement.default}.a" unless version
 
-    bundler_gem_version = Gem::Version.new(bundler_version)
+    bundler_gem_version = Gem::Version.new(version)
 
     requirement = bundler_gem_version.approximate_recommendation
 
-<<<<<<< HEAD
     return requirement unless Gem.rubygems_version < Gem::Version.new('2.7.0')
-=======
-    return requirement unless Gem::Version.new(Gem::VERSION) < Gem::Version.new("2.7.0")
->>>>>>> 289918409f164a7f36a95e0ae462e6cefa02984f
 
     requirement += '.a' if bundler_gem_version.prerelease?
 

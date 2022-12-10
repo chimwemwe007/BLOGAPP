@@ -1,35 +1,7 @@
-<<<<<<< HEAD
 <div class="mt-3 d-flex align-items-center flex-column">
   <div class="photo-name">
     <div class="card mb-3 border-primary" style="width: 180px">
       <img src="<%= @user.photo %>" alt="avatar" />
-=======
-<<<<<<< HEAD
-<h1>User Details</h1>
-<div class="user">
-<%= render 'partials/user', user: @user %>
-<div class='bio'>
-<p><%= @user.bio %></p>
-</div>
-<h5>Recent posts</h5>
-<ul class='card'>
-    <% @user.recent_posts.each do |post| %>
-      <a href="/users/<%= @user.id %>/posts/<%= post.id %> ">
-        <%= render 'partials/post', post: post %>
-      </a>
-    <% end %>
-</ul>
-<a href="/users/<%= @user.id %>/posts">
-        <button> See all Posts </button>
-      </a>
-</div>
-=======
-
-<div class="card mb-3 text-center" style="max-width: 540px;">
-  <div class="row g-0 text-center">
-    <div class="col-md-4">
-      <img src="<%= @user.photo %>" class="img-fluid rounded-start" alt="profile">
->>>>>>> e9c2032195cbf0c98c447a9f4d718028676a1f3f
     </div>
     <div class="card-body">
       <h2><%= @user.name %></h2>
@@ -49,7 +21,6 @@
     </div>
   </div>
 </div>
-<<<<<<< HEAD
 <div>
   <div class="mt-3 d-flex align-items-center flex-column">
     <h2 class="card-title bg-info">Most Recent Posts</h2>
@@ -75,8 +46,3 @@
     </div>
   </div>
 </div>
-=======
-
-
->>>>>>> a84e878566ac4c3820d02ce9889d3f621b67f9fa
->>>>>>> e9c2032195cbf0c98c447a9f4d718028676a1f3f
