@@ -12,6 +12,7 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -43,7 +44,6 @@ RSpec.configure do |config|
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
-
   # The settings below are suggested to provide a good initial experience
   # with RSpec, but feel free to customize to your heart's content.
   #   # This allows you to limit a spec run to individual examples or groups
@@ -62,10 +62,6 @@ RSpec.configure do |config|
   #   # recommended. For more details, see:
   #   # https://relishapp.com/rspec/rspec-core/docs/configuration/zero-monkey-patching-mode
   #   config.disable_monkey_patching!
-  #
-  #   # This setting enables warnings. It's recommended, but in some cases may
-  #   # be too noisy due to issues in dependencies.
-  #   config.warnings = true
   #
   #   # Many RSpec users commonly either run the entire suite or an individual
   #   # file, and it's useful to allow more verbose output when running an
@@ -86,7 +82,7 @@ RSpec.configure do |config|
   #   # order dependency and want to debug it, you can fix the order by providing
   #   # the seed, which is printed after each run.
   #   #     --seed 1234
-  #   config.order = :random
+  config.order = :random
   #
   #   # Seed global randomization in this process using the `--seed` CLI option.
   #   # Setting this allows you to use `--seed` to deterministically reproduce

@@ -4,13 +4,20 @@ class LikesController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:post_id])
-    @like = @post.likes.new(author_id: Current.user.id, post_id: @post.id)
-
+    @current_post = Post.find(params[:post_id])
+    @like = @current_post.likes.new
+    @like.post_id = @current_post.id
+    @like.author_id = current_user.id
     if @like.save
-      redirect_to "/users/#{@post.author.id}/posts/#{@post.id}"
+      flash[:success] = 'New like saved successfully'
+      redirect_to user_post_path(current_user, @current_post)
     else
-      render :new
+      flash[:error] = 'Something went wrong'
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def like_params
+    params.permit(:text)
   end
 end
