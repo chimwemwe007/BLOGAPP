@@ -90,15 +90,3 @@ RSpec.describe Post, type: :system do
       page.has_content?(subject.text)
     end
 
-    it 'I can see the username of each commentor.' do
-      comment = Comment.create(author_id: user.id, post_id: subject.id, text: 'Nice post')
-      visit user_post_path(user.id, subject.id)
-      page.has_content?(comment.author.name)
-    end
-    it 'I can see the comment each commentor left.' do
-      comment = Comment.create(author_id: user.id, post_id: subject.id, text: 'Nice post')
-      visit user_post_path(user.id, subject.id)
-      page.has_content?(comment.text)
-    end
-  end
-end
