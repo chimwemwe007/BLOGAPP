@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Post, type: :system do
+RSpec.describe 'Post', type: :feature do
   user = User.create(name: 'John', posts_counter: 30, photo: 'https://randomuser.me/api/portraits/men/70.jpg',
                      bio: 'Teacher from Poland.')
 
@@ -102,4 +102,3 @@ RSpec.describe Post, type: :system do
     end
   end
 end
-
