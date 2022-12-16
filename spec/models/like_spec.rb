@@ -1,19 +1,49 @@
-require 'rails_helper'
+require_relative '../rails_helper'
 
-describe Like, type: :model do
-  before :each do
-    @author = User.new(name: 'Edi', photo: 'https://avatars.githubusercontent.com/u/105216647?v=4',
-                       bio: 'Full-stack developer')
-    @post = Post.new(author: @author, title: 'Post one', text: 'Post')
-
-    @like = Like.create(author: @author, post: @post)
+RSpec.describe Like, type: :model do
+  let(:user) do
+    User.new(
+      name: 'John',
+      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'I am a photographer',
+      posts_counter: 4
+    )
   end
 
-  it 'can not update likes_counter its a private method' do
-    expect(@like).to_not respond_to(:update_likes_counter)
+  let(:post) do
+    Post.new(
+      user: user,
+      title: 'My first post',
+      text: 'This is my first post',
+      comments_counter: 1,
+      likes_counter: 2
+    )
   end
 
-  it 'will have the Posts likes_counter through update_comments_counter ' do
-    expect(@post.likes_counter).to eq 1
+  let(:like) do
+    Like.new(
+      user: user,
+      post: post
+    )
+  end
+
+  it 'is only valid with a user' do
+    like.user = user
+    expect(like).to be_valid
+  end
+
+  it 'is only valid with a user' do
+    like.user = nil
+    expect(like).to_not be_valid
+  end
+
+  it 'is valid with a post' do
+    like.post = post
+    expect(like).to be_valid
+  end
+
+  it 'is only valid with a post' do
+    like.post = nil
+    expect(like).to_not be_valid
   end
 end
