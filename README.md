@@ -52,7 +52,7 @@ REQUIRED SECTIONS:
 
 > The Blog app 
 
-**The Blog app** is Ruby on rails website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
+**The Blog app** is Ruby on rails website that will show the list of posts and empower readers to interact with them by adding comments and liking posts. In this pull request for the project i added integration tests as well as solved the n+1 problem.
 
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -89,9 +89,9 @@ REQUIRED SECTIONS:
 
 > Describe between 1-3 key features of the application.
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **[CRUD Operations on blog posts]**
+- **[validation of users on the blog]**
+- **[Saving created data in a postgres database]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,7 +101,7 @@ REQUIRED SECTIONS:
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [Live Demo Link](coming soon)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,79 +128,19 @@ Example command:
 ### Setup
 
 Clone this repository to your desired folder:
-
-<!--
-Example commands:
-
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
-```
---->
-
-### Install
-
-Install this project with:
-
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
-```
---->
-
-### Usage
-
-To run the project, execute the following command:
-
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
-
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+### 
+git clone https://github.com/chimwemwe007/BLOGAPP
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
 
 > Mention all of the collaborators of this project.
 
-👤 **Author**
+👤 **Chimwemwe Mkandawire**
 
-- GitHub: [@chimwemwe007](https://github.com/githubhandle)
+- GitHub: [@chimwemwe007](https://github.com/chimwemwe007)
 - Twitter: [@chxmz](https://twitter.com/chxmz)
 - LinkedIn: [Chimwemwe Mkandawire](https://linkedin.com/in/chimwemwe-mkandawire)
-
 
 👤 **Youta Christabelle**
 
@@ -216,9 +156,8 @@ Example:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **[integreation specs]**
+- [ ] **[solve the n+1 problem]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
