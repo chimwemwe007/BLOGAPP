@@ -201,6 +201,13 @@ Example:
 - Twitter: [@chxmz](https://twitter.com/chxmz)
 - LinkedIn: [Chimwemwe Mkandawire](https://linkedin.com/in/chimwemwe-mkandawire)
 
+
+👤 **Youta Christabelle**
+
+- GitHub: [Christabelle143](https://github.com/Christabelle143)
+- Twitter: [@christabelleyo](https://twitter.com/christabelleyo)
+- LinkedIn: [YoutaChristabelle](https://linkedin.com/in/YoutaChristabelle)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
