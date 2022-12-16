@@ -53,7 +53,7 @@ REQUIRED SECTIONS:
 > The Blog app 
 
 **The Blog app** is Ruby on rails website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
-> In this project for the blog app i had to change the validation for the differentmodels as well as write unit tests for them.
+
 
 ## 🛠 Built With <a name="built-with"></a>
 
