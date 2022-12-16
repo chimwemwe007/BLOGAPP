@@ -61,5 +61,9 @@ RSpec.describe 'Post index', type: :feature do
       click_link(@post.title)
       expect(page).to have_current_path(user_post_path(@user1, @post))
     end
+    it 'displays first comment text' do
+      visit user_posts_path(@user1)
+      expect(page).to have_content('I really like this post. Good job!')
+    end
   end
 end
