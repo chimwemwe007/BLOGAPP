@@ -1,35 +1,28 @@
+# SQLite. Versions 3.8.0 and up are supported.
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem "sqlite3"
+#
 default: &default
   adapter: postgresql
-  encoding: unicode
-<<<<<<< HEAD
-=======
-  host: localhost
-  port: 5432
-  user: postgres
-  password: Galoramedia21
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
->>>>>>> a84e878566ac4c3820d02ce9889d3f621b67f9fa
+  eoncoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
-  database: blogapp_development
-  username: blogapp
-  password: gjjkulu
-  host: 127.0.0.1
-  port: 5432
+  database: myblog_development
 
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: blogapp_test
-  username: blogapp
-  password: gjjkulu
-  host: 127.0.0.1
-  port: 5432
+  database: myblog_test
 
 production:
   <<: *default
-  database: BlogApp_production
-  username: BlogApp
-  password: <%= ENV["BLOGAPP_DATABASE_PASSWORD"] %>
+  database: myblog_production
+  username: myblog
+  password: <%= ENV['MYBLOG_DATABASE_PASSWORD'] %>

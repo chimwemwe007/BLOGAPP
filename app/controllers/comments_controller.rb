@@ -1,24 +1,24 @@
 class CommentsController < ApplicationController
   def new
-    @comments = Comment.new
+    @comment = Comment.new
   end
 
   def create
-    @current_post = Post.find(params[:post_id])
-    @comments = @current_post.comments.new(comment_params)
-    @comments.post_id = @current_post.id
-    @comments.author_id = Current.user.id
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    @post = Post.find(params[:post_id])
+    @comment.post_id = @post.id
 
-    if @comments.save
-      redirect_to "/users/#{@current_post.author_id}/posts/#{@current_post.id}"
+    if @comment.save
+      redirect_to user_post_path(user_id: @post.user_id, id: @post.id)
+      flash[:notice] = 'Comment successfully added!'
     else
       render :new
+      flash[:alert] = 'Comment not submitted!'
     end
   end
 
-  private
-
   def comment_params
-    params.require(:comment).permit(:text)
+    params.require(:comment).permit(:text, :post_id)
   end
 end

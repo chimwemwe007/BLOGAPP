@@ -6,13 +6,13 @@
 
 # Ignore bundler config.
 /.bundle
-# Ignore bundler config.
-/node_modules
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+node_modules/*
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
@@ -30,4 +30,3 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/node_modules
