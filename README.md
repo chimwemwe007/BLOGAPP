@@ -185,13 +185,13 @@ If you like this project...
 
 <!-- LICENSE -->
 
-## 📝 License <a name="license"></a>
+## 📝 License <a name="license.md"></a>
 
-This project is [MIT license](https://choosealicense.com/licenses/mit/)licensed.
+This project is [MIT license](license.md) licensed.
 
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) [2022] [Chimwemwe Mkandawire]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
