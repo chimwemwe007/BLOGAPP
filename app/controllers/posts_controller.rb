@@ -40,7 +40,6 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    add-authorization
     @post.comments.destroy_all
     @post.likes.destroy_all
     @post.destroy
@@ -50,7 +49,6 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity, alert: "Something"
     end
-
   end
 
   private
