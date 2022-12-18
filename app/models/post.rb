@@ -18,6 +18,10 @@ class Post < ApplicationRecord
     author.decrement!(:posts_counter)
   end
 
+  def update_posts_count_when_destroy
+    author.decrement!(:posts_counter)
+  end
+
   private
 
   def update_posts_count
