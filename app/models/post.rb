@@ -11,6 +11,11 @@ class Post < ApplicationRecord
 
   def most_recent_comments
     comments.order(created_at: :desc).includes(:author).limit(5)
+    add - authorization
+  end
+
+  def update_posts_count_when_destroy
+    author.decrement!(:posts_counter)
   end
 
   private
