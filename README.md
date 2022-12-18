@@ -1,80 +1,40 @@
-<a name="Blog-app"></a>
 
-REQUIRED SECTIONS:
-- Table of Contents
-- About me Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-<div align="center">
-
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  <h3><b>Microverse README Template</b></h3>
-
-</div>
-
-<!-- TABLE OF CONTENTS -->
-
-# 📗 Table of Contents
+## 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    - [Video Presentation](#video-presentation)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
   - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
+  - [Run rspec test](#run-rspec)
+  - [Run rubocop linters test](#run-rubocop)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Blog app <a name="about-project"></a>
+# 📖 Catalog Of My Things <a name="about-project"></a>
 
-> The Blog app 
+> My blog app is a web app that will show several blogs crated by different authors. Everything is be based on entity relationship diagram given by microverse. The data is stored in postgres database.
 
-**The Blog app** is Ruby on rails website that will show the list of posts and empower readers to interact with them by adding comments and liking posts. In this pull request for the project i added integration tests as well as solved the n+1 problem.
-
+**My Blog app** is RoR web based desktop application.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Ruby on rails
-> rspec
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-  </ul>
-</details>
+> Ruby
+> Ruby on Rails
 
 <details>
 <summary>Database</summary>
@@ -87,60 +47,70 @@ REQUIRED SECTIONS:
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
+> Key Features:
 
-- **[CRUD Operations on blog posts]**
-- **[validation of users on the blog]**
-- **[Saving created data in a postgres database]**
+- **List of blogs**
+- **Create new blog**
+- **like blog**
+- **comment blog**
+- **view likes**
+- **view comments**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
-
-- [Live Demo Link](coming soon)
+### Video presentation <a name="video-presentation"></a> 
+- Coming Soon!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
+> First of all user should have Ruby installed on their machine or system then just follow these steps.
 
-To get a local copy up and running, follow these steps.
+### Prerequisites <a name="prerequisites"></a>
 
-### Prerequisites
+In order to run application please proceed with following steps :
 
-In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
-
-### Setup
+### Setup <a name="setup"></a>
 
 Clone this repository to your desired folder:
-### 
-git clone https://github.com/chimwemwe007/BLOGAPP
+
+**git clone git@github.com:Christabelle143/my_blog_app.git**
+
+### Install <a name="install"></a>
+
+Install this project with:
+
+run `bundle install` and hit enter.
+
+### Usage <a name="usage"></a>
+
+To run the project, execute the following command:
+
+run `rails s` and hit enter.
+
+### Run rspec tests <a name="run-rspec"></a>
+
+To run tests, run the following command:
+
+run `rspec spec` and hit enter.
+
+### Run rubocop linters test <a name="run-rubocop"></a>
+
+To run tests, run the following command:
+
+run `rubocop` and hit enter.
+
+For auto-correction use below command 
+
+run `rubocop -a` and hit enter.
+
 <!-- AUTHORS -->
 
-## 👥 Authors <a name="authors"></a>
+## 👥 Authors <a name="authors">Youta Lactio Christabelle</a>
 
-> Mention all of the collaborators of this project.
-
-👤 **Chimwemwe Mkandawire**
-
-- GitHub: [@chimwemwe007](https://github.com/chimwemwe007)
-- Twitter: [@chxmz](https://twitter.com/chxmz)
-- LinkedIn: [Chimwemwe Mkandawire](https://linkedin.com/in/chimwemwe-mkandawire)
+## Author
 
 👤 **Youta Christabelle**
 
@@ -148,19 +118,33 @@ git clone https://github.com/chimwemwe007/BLOGAPP
 - Twitter: [@christabelleyo](https://twitter.com/christabelleyo)
 - LinkedIn: [YoutaChristabelle](https://linkedin.com/in/YoutaChristabelle)
 
+👤 **Chimwemwe MKandawire**
+
+- GitHub: [chimwemwe007](https://github.com/chimwemwe007)
+- Twitter: [@chxmz](https://twitter.com/chxmz)
+- LinkedIn: [chimwemwe-mkandawire](https://linkedin.com/in/chimwemwe-mkandawire)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[integreation specs]**
-- [ ] **[solve the n+1 problem]**
-
+> These are features that will be add to the project.
+> - [X] Ticked features represents implemented features
+> - [ ] Un ticked features represents features being worked on
+- [X] **Creating a data model**
+- [X] **Processing data in models**
+- [X] **Validations and Model specs**
+- [X] **Setup and controllers**
+- [X] **Controllers specs**
+- [X] **Views**
+- [X] **Add forms**
+- [ ] **Integration specs for Views and fixing `n+1` problems**
+- [ ] **Add Devise**
+- [ ] **Add authorization rules**
+- [ ] **Add API endpoints.**
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
